@@ -321,39 +321,9 @@
                     
                     <!-- SHEIN Product Reviewer ID Card -->
                     <div class="mb-8">
-                        <div id="idCard" class="id-card w-full max-w-md mx-auto h-56 bg-gradient-to-br from-black via-gray-800 to-gray-900 rounded-2xl shadow-2xl flex flex-col items-center justify-center text-white relative overflow-hidden cursor-pointer">
-                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 -translate-x-full animate-shimmer"></div>
-                            
-                            <!-- Background Image -->
-                            <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/shein-bg.jpg" alt="SHEIN Background" class="absolute inset-0 w-full h-full object-cover opacity-20 rounded-2xl">
-                            
-                            <div class="relative z-10 text-center">
-                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 mx-auto overflow-hidden">
-                                    <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/shein-logo.png" alt="SHEIN Logo" class="w-12 h-12 object-contain">
-                                </div>
-                                <div class="text-xl font-bold mb-2">SHEIN Product</div>
-                                <div class="text-xl font-bold mb-4">Reviewer</div>
-                                <div class="border-t border-white/30 pt-4 space-y-2">
-                                    <div class="text-sm"><span class="font-semibold">Age:</span> 13+</div>
-                                    <div class="text-sm"><span class="font-semibold">Earn:</span> $700/month</div>
-                                    <div class="text-sm"><span class="font-semibold">Apply at:</span> 700Shein.com</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Title -->
-                    <div class="text-center mb-8">
-                        <h1 class="text-3xl font-bold text-gray-900 mb-4 leading-tight">
-                            Become a SHEIN Product Reviewer
-                        </h1>
-                        <div class="flex items-center justify-center gap-2 text-sm text-gray-600 mb-6">
-                            <span>Verified by</span>
-                            <span class="font-bold text-black">SHEIN</span>
-                            <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
-                                <svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                        <!-- Roblox Banner Image with Timed Shake Animation -->
+                        <div class="mb-8">
+                            <img id="robloxBanner" src="images/roblox_250.png" alt="Roblox Banner" class="banner-image w-full max-w-md mx-auto rounded-2xl shadow-2xl cursor-pointer animate-pulse-glow">
                             </div>
                         </div>
 
@@ -509,7 +479,19 @@
     <script>
         // Configuration
         const OFFER_URL = 'https://rewarrdsgiant.com/aff_c?offer_id=1146&aff_id=28197';
-    
+        
+        // Testimonials data
+        const testimonials = [
+            { name: "Sarah M.", action: "earned", amount: "$700" },
+            { name: "Jessica K.", action: "received", amount: "$650" },
+            { name: "Amanda L.", action: "got paid", amount: "$725" },
+            { name: "Emily R.", action: "earned", amount: "$680" },
+            { name: "Madison T.", action: "received", amount: "$750" },
+            { name: "Ashley P.", action: "got paid", amount: "$695" },
+            { name: "Taylor B.", action: "earned", amount: "$710" },
+            { name: "Jordan C.", action: "received", amount: "$665" },
+        ];
+
         // State variables
         let currentTestimonialIndex = 0;
         let testimonialTimeout;
@@ -554,7 +536,7 @@
             popup.innerHTML = `
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-gradient-to-r from-black to-gray-800 rounded-full flex items-center justify-center">
-                        <img src="mainimages/SHEINJOBS.png" alt="User" class="w-6 h-6 object-cover rounded-full">
+                        <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/user-avatar.png" alt="User" class="w-6 h-6 object-cover rounded-full">
                     </div>
                     <div class="text-sm">
                         <span class="font-bold text-black">${testimonial.name}</span>
