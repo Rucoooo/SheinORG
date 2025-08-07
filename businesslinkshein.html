@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #111827;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 28rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .amazon-logo {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .amazon-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .amazon-arrow {
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            right: 0;
+            height: 0.25rem;
+        }
+
+        .arrow-curve {
+            width: 100%;
+            height: 0.25rem;
+            background: linear-gradient(to right, #fb923c, #f97316);
+            border-radius: 9999px;
+            transform: rotate(3deg);
+            transform-origin: left;
+        }
+
+        .main-heading {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .main-heading h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .step {
+            font-size: 0.875rem;
+        }
+
+        .step-number {
+            font-weight: 500;
+        }
+
+        .step-bold {
+            font-weight: bold;
+        }
+
+        .location-question {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .location-question.hidden {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .location-question h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .country-button {
+            width: 100%;
+            background-color: #ea580c;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 1rem;
+        }
+
+        .country-button:hover {
+            background-color: #dc2626;
+        }
+
+        .verification {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .verification-text {
+            font-size: 0.875rem;
+            color: #d1d5db;
+        }
+
+        .verification-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #06b6d4;
+            border-radius: 50%;
+        }
+
+        .bottom-status {
+            text-align: center;
+        }
+
+        .status-text {
+            font-size: 0.875rem;
+            color: #d1d5db;
+        }
+
+        .status-number {
+            font-weight: 600;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo-container">
+                <div class="amazon-logo">
+                    <span class="amazon-text">a</span>
+                    <div class="amazon-arrow">
+                        <div class="arrow-curve"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <div class="main-heading">
+            <h1>Follow the steps below!</h1>
+        </div>
+
+        <!-- Steps List -->
+        <div class="steps-list">
+            <div class="step">
+                <span class="step-number">1.</span> Answer the questions below
+            </div>
+            <div class="step">
+                <span class="step-number">2.</span> Enter basic details
+            </div>
+            <div class="step">
+                <span class="step-number">3.</span> Complete <span class="step-bold">3-5 deals (important!)</span>
+            </div>
+            <div class="step">
+                <span class="step-number">4.</span> Get your <span class="step-bold">credit</span> and repeat <span class="step-bold">anytime!</span>
+            </div>
+        </div>
+
+        <!-- Location Question -->
+        <div class="location-question" id="locationQuestion">
+            <h2>Where are you located?</h2>
+        </div>
+
+        <!-- Country Buttons -->
+        <div class="buttons-container" id="buttonsContainer">
+            <button class="country-button" onclick="handleUnitedStatesClick()">
+                United States
+            </button>
+            <button class="country-button">
+                Canada
+            </button>
+        </div>
+
+        <!-- Verified by TikTok -->
+        <div class="verification">
+            <span class="verification-text">Verified by TikTok</span>
+            <div class="verification-dot"></div>
+        </div>
+
+        <!-- Bottom Status -->
+        <div class="bottom-status">
+            <p class="status-text">
+                <span class="status-number">144</span> people are completing offers right now.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function handleUnitedStatesClick() {
+            // Hide the location question
+            const locationQuestion = document.getElementById('locationQuestion');
+            locationQuestion.classList.add('hidden');
+            
+            // Replace buttons with redeem button
+            const buttonsContainer = document.getElementById('buttonsContainer');
+            buttonsContainer.innerHTML = `
+                <button class="country-button" onclick="window.location.href='https://example.com'">
+                    Thank you click to redeem!
+                </button>
+            `;
+        }
+    </script>
+</body>
+</html>
