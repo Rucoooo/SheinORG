@@ -21,31 +21,24 @@
         }
         
         html, body {
-            height: 100%;
+            height: 100vh;
             overflow: hidden;
-        }
-        
-        body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #000000;
             color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
-            max-width: 350px;
-            width: 100%;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 24px;
+            justify-content: center;
+            padding: 20px;
             text-align: center;
+            position: relative;
         }
         
         /* Logo */
@@ -54,9 +47,10 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-            border-radius: 25px;
+            border-radius: 30px;
             padding: 16px 32px;
-            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4);
+            margin-bottom: 40px;
             position: relative;
             overflow: hidden;
         }
@@ -94,35 +88,35 @@
         }
         
         /* Main heading */
-        .main-heading h1 {
-            font-size: 18px;
+        .main-heading {
+            font-size: 20px;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 30px;
         }
         
         /* Steps */
-        .steps-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .steps-container {
+            margin-bottom: 30px;
             width: 100%;
-            text-align: left;
-            padding: 0 20px;
+            max-width: 350px;
         }
         
         .step {
-            font-size: 16px;
-            color: #ffffff;
             display: flex;
             align-items: flex-start;
-            gap: 8px;
+            justify-content: flex-start;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #ffffff;
+            text-align: left;
         }
         
         .step-number {
             font-weight: 600;
             color: #ff6b6b;
-            min-width: 20px;
+            min-width: 25px;
+            margin-right: 8px;
         }
         
         .step-content {
@@ -136,7 +130,11 @@
         
         /* Location question */
         .location-question {
-            transition: all 0.3s ease-in-out;
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 25px;
+            transition: all 0.5s ease-in-out;
         }
         
         .location-question.hidden {
@@ -146,33 +144,27 @@
             overflow: hidden;
         }
         
-        .location-question h2 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-        
         /* Buttons */
         .buttons-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
             width: 100%;
-            max-width: 280px;
+            max-width: 320px;
+            margin-bottom: 30px;
         }
         
         .country-button {
             width: 100%;
-            background: white;
+            background: #ffffff;
             color: #000000;
             font-weight: 600;
-            padding: 16px 24px;
-            border-radius: 12px;
-            border: 2px solid #e5e7eb;
+            padding: 18px 24px;
+            border-radius: 15px;
+            border: none;
             cursor: pointer;
             font-size: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -180,8 +172,7 @@
         
         .country-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            border-color: #ff6b6b;
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
         }
         
         .country-button:active {
@@ -191,26 +182,31 @@
         .redeem-button {
             background: linear-gradient(135deg, #10b981, #059669) !important;
             color: white !important;
-            border: none !important;
-            box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4) !important;
+            box-shadow: 0 6px 30px rgba(16, 185, 129, 0.4) !important;
             animation: pulse-success 2s ease-in-out infinite alternate;
         }
         
         .redeem-button:hover {
-            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.6) !important;
+            box-shadow: 0 8px 40px rgba(16, 185, 129, 0.6) !important;
         }
         
         @keyframes pulse-success {
-            0% { box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4); }
-            100% { box-shadow: 0 8px 32px rgba(16, 185, 129, 0.6); }
+            0% { box-shadow: 0 6px 30px rgba(16, 185, 129, 0.4); }
+            100% { box-shadow: 0 8px 40px rgba(16, 185, 129, 0.6); }
         }
         
         /* Bottom status */
         .bottom-status {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            width: 100%;
+            max-width: 350px;
         }
         
         .status-text {
@@ -219,22 +215,7 @@
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
-        }
-        
-        .status-number {
-            font-weight: 700;
-            color: #10b981;
-            font-size: 18px;
-        }
-        
-        .urgency-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #10b981;
-            font-weight: 600;
+            gap: 10px;
         }
         
         .pulse-dot {
@@ -242,7 +223,6 @@
             height: 8px;
             background: #10b981;
             border-radius: 50%;
-            margin-right: 8px;
             animation: pulse-dot 2s infinite;
         }
         
@@ -261,38 +241,47 @@
             }
         }
         
+        .status-number {
+            font-weight: 700;
+            color: #10b981;
+            font-size: 18px;
+        }
+        
+        .urgency-indicator {
+            font-size: 14px;
+            color: #10b981;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .urgency-dot {
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+        }
+        
         .age-disclaimer {
             font-size: 12px;
             color: #ffffff;
-            font-weight: 700;
-            background: rgba(255, 107, 107, 0.1);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 107, 107, 0.2);
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
         
         /* Mobile optimizations */
         @media (max-height: 700px) {
             .container {
-                gap: 20px;
-            }
-            
-            .step {
-                font-size: 15px;
-            }
-            
-            .country-button {
-                padding: 14px 20px;
-                font-size: 15px;
-            }
-        }
-        
-        @media (max-height: 600px) {
-            .container {
-                gap: 16px;
+                padding: 15px;
             }
             
             .logo-container {
+                margin-bottom: 25px;
                 padding: 12px 24px;
             }
             
@@ -300,12 +289,78 @@
                 font-size: 20px;
             }
             
-            .main-heading h1 {
+            .main-heading {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            
+            .step {
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+            
+            .location-question {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            
+            .country-button {
+                padding: 16px 20px;
+                font-size: 15px;
+            }
+            
+            .bottom-status {
+                bottom: 20px;
+                gap: 12px;
+            }
+        }
+        
+        @media (max-height: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .logo-container {
+                margin-bottom: 20px;
+                padding: 10px 20px;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .main-heading {
                 font-size: 16px;
+                margin-bottom: 15px;
             }
             
             .step {
                 font-size: 14px;
+                margin-bottom: 8px;
+            }
+            
+            .location-question {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            
+            .country-button {
+                padding: 14px 18px;
+                font-size: 14px;
+            }
+            
+            .bottom-status {
+                bottom: 15px;
+                gap: 10px;
+            }
+            
+            .status-text {
+                font-size: 14px;
+            }
+            
+            .age-disclaimer {
+                font-size: 11px;
+                padding: 8px 16px;
             }
         }
         
@@ -340,12 +395,10 @@
         </div>
 
         <!-- Main Heading -->
-        <div class="main-heading">
-            <h1>Follow the steps below!</h1>
-        </div>
+        <div class="main-heading">Follow the steps below!</div>
 
-        <!-- Steps List -->
-        <div class="steps-list">
+        <!-- Steps Container -->
+        <div class="steps-container">
             <div class="step">
                 <span class="step-number">1.</span>
                 <span class="step-content">Answer the questions below</span>
@@ -366,7 +419,7 @@
 
         <!-- Location Question -->
         <div class="location-question" id="locationQuestion">
-            <h2>Where are you located?</h2>
+            Where are you located?
         </div>
 
         <!-- Country Buttons -->
@@ -381,20 +434,24 @@
 
         <!-- Bottom Status -->
         <div class="bottom-status">
-            <p class="status-text">
+            <div class="status-text">
                 <span class="pulse-dot"></span>
-                <span class="status-number" id="live-count">82</span> people are completing this offer right now.
-            </p>
-            <div class="urgency-indicator">
-                <span>• Limited time offer!</span>
+                <span class="status-number" id="live-count">82</span>
+                <span>people are completing this offer right now.</span>
             </div>
-            <p class="age-disclaimer"><strong>Must be 18+ to participate in this offer.</strong></p>
+            <div class="urgency-indicator">
+                <span class="urgency-dot"></span>
+                <span>Limited time offer!</span>
+            </div>
+            <div class="age-disclaimer">
+                <strong>Must be 18+ to participate in this offer.</strong>
+            </div>
         </div>
     </div>
 
     <script>
         function handleCountryClick() {
-            // Hide the location question
+            // Hide the location question with smooth transition
             const locationQuestion = document.getElementById('locationQuestion');
             locationQuestion.classList.add('hidden');
             
