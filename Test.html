@@ -11,7 +11,7 @@
     <!-- Preload critical fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Reset and Base Styles */
@@ -29,193 +29,319 @@
         
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #F5F5F7;
-            color: #2D2D2D;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
             line-height: 1.5;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="12" cy="8" r="0.3" fill="rgba(255,255,255,0.05)"/><circle cx="18" cy="15" r="0.4" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>') repeat;
+            opacity: 0.3;
+            animation: twinkle 20s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @keyframes twinkle {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
         }
         
         /* Container */
         .container {
-            max-width: 100%;
+            max-width: 480px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            gap: 2rem;
         }
         
         /* Header Section */
         .header {
-            padding: 24px 0 12px;
             text-align: center;
+            margin-bottom: 1rem;
         }
         
-        .logo-pill {
+        .logo-container {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: white;
-            border: 1px solid #DEE2E6;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 50px;
-            padding: 12px 20px;
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+            padding: 16px 24px;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
         .heart-icon {
-            width: 16px;
-            height: 16px;
-            margin-right: 10px;
-            fill: #2D2D2D;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            fill: white;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         
         .logo-text {
-            font-size: 18px;
-            font-weight: 700;
-            color: #2D2D2D;
-            letter-spacing: 1px;
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
         /* Hero Section */
         .hero {
-            padding: 12px 0 18px;
             text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3); }
+            100% { box-shadow: 0 6px 24px rgba(16, 185, 129, 0.5); }
         }
         
         .hero-title {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 800;
-            color: #2D2D2D;
             margin-bottom: 16px;
             line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         
         .hero-subtitle {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
         
         .party-icon {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
         
         .reward-text {
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #2D2D2D, #495057);
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         
         .hero-description {
-            font-size: 1rem;
-            color: #4A5568;
-            margin-bottom: 18px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
             font-weight: 400;
             line-height: 1.6;
         }
         
-        /* How It Works Section */
-        .how-it-works {
-            padding: 16px 0 20px;
+        /* Steps Section */
+        .steps-section {
+            margin-bottom: 2rem;
         }
         
         .section-title {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
-            color: #2D2D2D;
+            margin-bottom: 24px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
         .steps-container {
-            max-width: 420px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
         
         .step {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            padding: 12px;
-            background: white;
-            border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-            border: 1px solid #E5E5E7;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .step:hover::before {
+            left: 100%;
         }
         
         .step-number {
             flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #2D2D2D, #495057);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 1rem;
-            margin-right: 16px;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
         }
         
         .step-content {
             flex: 1;
-            padding-top: 6px;
         }
         
         .step-text {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: #2D2D2D;
+            color: white;
             margin-bottom: 4px;
             line-height: 1.4;
         }
         
         .step-subtext {
-            font-size: 0.8rem;
-            color: #6B7280;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
             font-weight: 400;
             line-height: 1.5;
         }
         
-        /* CTA Section */
-        .cta-section {
-            padding: 18px 0 24px;
-            text-align: center;
+        .step-bold {
+            font-weight: 700;
+            color: #ffd93d;
         }
         
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #2D2D2D, #495057);
+        /* Location Question */
+        .location-question {
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .location-question.hidden {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .location-question h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
             color: white;
-            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .location-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Buttons Container */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 2rem;
+        }
+        
+        .country-button {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
             font-weight: 700;
-            padding: 18px 32px;
-            border: none;
+            padding: 18px 24px;
             border-radius: 50px;
-            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 3px 16px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 24px rgba(255, 107, 107, 0.4);
             transition: all 0.3s ease;
-            cursor: pointer;
-            width: 100%;
-            max-width: 320px;
             position: relative;
             overflow: hidden;
         }
         
-        .cta-button:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-        }
-        
-        .cta-button::before {
+        .country-button::before {
             content: '';
             position: absolute;
             top: 0;
@@ -226,229 +352,185 @@
             transition: left 0.5s;
         }
         
-        .cta-button:active::before {
+        .country-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.6);
+        }
+        
+        .country-button:hover::before {
             left: 100%;
         }
         
-        .cta-microcopy {
-            font-size: 0.8rem;
-            color: #6B7280;
-            margin-top: 10px;
-            font-weight: 500;
+        .country-button:active {
+            transform: translateY(0);
         }
         
-        .age-disclaimer {
-            font-size: 0.75rem;
-            color: #9CA3AF;
-            margin-top: 8px;
-            font-weight: 500;
+        .redeem-button {
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+            box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4) !important;
+            animation: pulse-success 2s ease-in-out infinite alternate;
         }
         
-        /* Urgency Indicator */
-        .urgency-indicator {
+        .redeem-button:hover {
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.6) !important;
+        }
+        
+        @keyframes pulse-success {
+            0% { box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4); }
+            100% { box-shadow: 0 8px 32px rgba(16, 185, 129, 0.6); }
+        }
+        
+        /* Verification Section */
+        .verification {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: #059669;
-            font-weight: 600;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .pulse-dot {
+        .verification-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        
+        .verification-dot {
             width: 8px;
             height: 8px;
-            background: #10B981;
+            background: linear-gradient(135deg, #10b981, #059669);
             border-radius: 50%;
-            margin-right: 8px;
-            animation: pulse 2s infinite;
+            animation: pulse-dot 2s ease-in-out infinite;
         }
         
-        @keyframes pulse {
+        @keyframes pulse-dot {
             0% {
                 transform: scale(0.95);
                 box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
             }
-            
             70% {
                 transform: scale(1);
                 box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
             }
-            
             100% {
                 transform: scale(0.95);
                 box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
             }
         }
         
-        /* Footer Section */
-        .footer {
-            padding: 18px 0 16px;
+        /* Bottom Status */
+        .bottom-status {
             text-align: center;
-            margin-top: 12px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .footer-logo {
-            opacity: 0.4;
-            margin-bottom: 12px;
+        .status-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
         }
         
-        .footer-logo-text {
-            font-size: 0.8rem;
-            color: #9CA3AF;
+        .status-number {
+            font-weight: 700;
+            color: #10b981;
+            font-size: 1.1rem;
+        }
+        
+        .urgency-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #10b981;
             font-weight: 600;
         }
         
-        .geo-restriction {
-            font-size: 0.7rem;
-            color: #6B7280;
-            font-weight: 500;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            max-width: 280px;
-            margin-left: auto;
-            margin-right: auto;
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse-dot 2s infinite;
         }
         
-        .legal-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        
-        .legal-link {
-            font-size: 0.7rem;
-            color: #9CA3AF;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .legal-link:active {
-            color: #2D2D2D;
-        }
-        
-        .legal-separator {
-            color: #D1D5DB;
-            font-size: 0.7rem;
+        /* Age Disclaimer */
+        .age-disclaimer {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 12px;
+            font-weight: 700;
+            text-align: center;
+            background: rgba(255, 107, 107, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
         }
         
         /* Responsive Design */
         @media (min-width: 375px) {
             .container {
-                padding: 0 20px;
+                padding: 0 24px;
             }
             
             .hero-title {
-                font-size: 2.6rem;
+                font-size: 2.8rem;
             }
             
             .reward-text {
-                font-size: 1.5rem;
-            }
-            
-            .hero-description {
-                font-size: 1.1rem;
-            }
-            
-            .step {
-                padding: 14px;
-                margin-bottom: 14px;
+                font-size: 1.8rem;
             }
         }
         
         @media (min-width: 414px) {
-            .container {
-                padding: 0 24px;
-            }
-            
-            .header {
-                padding: 20px 0 16px;
-            }
-            
-            .hero {
-                padding: 16px 0 20px;
-            }
-            
-            .how-it-works {
-                padding: 18px 0 24px;
-            }
-            
-            .cta-section {
-                padding: 20px 0 28px;
-            }
-            
             .step {
-                padding: 16px;
-                margin-bottom: 16px;
+                padding: 24px;
             }
             
             .step-number {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
-                margin-right: 18px;
+                width: 52px;
+                height: 52px;
+                font-size: 1.3rem;
+                margin-right: 24px;
             }
             
-            .step-text {
-                font-size: 1rem;
+            .country-button {
+                padding: 20px 32px;
+                font-size: 1.2rem;
             }
         }
         
         @media (min-width: 768px) {
             .container {
                 max-width: 540px;
-                padding: 0 28px;
-            }
-            
-            .header {
-                padding: 24px 0 18px;
-            }
-            
-            .hero {
-                padding: 18px 0 24px;
-            }
-            
-            .how-it-works {
-                padding: 20px 0 28px;
-            }
-            
-            .cta-section {
-                padding: 24px 0 32px;
+                padding: 0 32px;
             }
             
             .hero-title {
-                font-size: 3rem;
+                font-size: 3.2rem;
             }
             
             .reward-text {
-                font-size: 1.7rem;
+                font-size: 2rem;
             }
             
-            .cta-button {
-                font-size: 1.1rem;
-                padding: 20px 40px;
-                max-width: 380px;
-            }
-            
-            .cta-button:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-            }
-            
-            .cta-button:hover::before {
-                left: 100%;
-            }
-            
-            .step {
-                padding: 18px;
-                margin-bottom: 18px;
+            .country-button:hover {
+                transform: translateY(-3px);
             }
         }
         
         /* Performance Optimizations */
-        .step, .cta-button, .logo-pill {
+        .step, .country-button, .logo-container {
             will-change: transform;
         }
         
@@ -462,50 +544,42 @@
         }
         
         /* Focus styles for accessibility */
-        .cta-button:focus {
+        .country-button:focus {
             outline: 3px solid #93C5FD;
             outline-offset: 2px;
-        }
-        
-        .legal-link:focus {
-            outline: 2px solid #93C5FD;
-            outline-offset: 1px;
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
-            <div class="logo-pill">
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="logo-container">
                 <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
                 <span class="logo-text">SHEIN</span>
             </div>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-badge">🎯 Exclusive Offer</div>
             <h1 class="hero-title">Congratulations!</h1>
             
             <div class="hero-subtitle">
                 <span class="party-icon">🎉</span>
-                <span class="reward-text">$750 Back To School Shein Gift Card!</span>
+                <span class="reward-text">$750 Shein Gift Card!</span>
                 <span class="party-icon">🎉</span>
             </div>
 
             <p class="hero-description">
-                You've been selected for an exclusive Shein reward.
+                You've been selected for an exclusive Shein reward. Follow the steps below!
             </p>
         </div>
-    </section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works">
-        <div class="container">
+        <!-- Steps Section -->
+        <div class="steps-section">
             <h2 class="section-title">Your Path to $750</h2>
             
             <div class="steps-container">
@@ -513,7 +587,8 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <div class="step-text">Fill out super basic info 📝</div>
+                        <div class="step-text">Answer the questions below 📝</div>
+                        <div class="step-subtext">Quick and easy verification process</div>
                     </div>
                 </div>
 
@@ -521,7 +596,8 @@
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <div class="step-text">Answer qualifying questions</div>
+                        <div class="step-text">Enter basic details</div>
+                        <div class="step-subtext">Just your essential information</div>
                     </div>
                 </div>
 
@@ -529,8 +605,8 @@
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <div class="step-text">Complete the required deals</div>
-                        <div class="step-subtext">(The more you do, the higher your reward)</div>
+                        <div class="step-text">Complete <span class="step-bold">3-5 deals (important!)</span></div>
+                        <div class="step-subtext">The more you do, the higher your reward</div>
                     </div>
                 </div>
 
@@ -538,99 +614,105 @@
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <div class="step-text">Receive your reward</div>
-                        <div class="step-subtext">(from a minimum of $150 up to a $750 Gift Card!)</div>
+                        <div class="step-text">Get your <span class="step-bold">credit</span> and repeat <span class="step-bold">anytime!</span></div>
+                        <div class="step-subtext">From $150 minimum up to $750 Gift Card!</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Call-to-Action Section -->
-    <section class="cta-section">
-        <div class="container">
-            <a href="https://rewarduplevel.com/aff_c?offer_id=445&aff_id=28197" class="cta-button" role="button" aria-label="Start claiming your Shein reward">
-                START NOW & CLAIM YOUR REWARD
-            </a>
-            <p class="age-disclaimer"><strong>Must be 18+ to participate in this offer.</strong></p>
+        <!-- Location Question -->
+        <div class="location-question" id="locationQuestion">
+            <h2>Where are you located?</h2>
+            <p class="location-subtitle">Select your country to continue</p>
+        </div>
+
+        <!-- Country Buttons -->
+        <div class="buttons-container" id="buttonsContainer">
+            <button class="country-button" onclick="handleUnitedStatesClick()">
+                🇺🇸 United States
+            </button>
+            <button class="country-button" onclick="handleCountryClick('Canada')">
+                🇨🇦 Canada
+            </button>
+            <button class="country-button" onclick="handleCountryClick('United Kingdom')">
+                🇬🇧 United Kingdom
+            </button>
+            <button class="country-button" onclick="handleCountryClick('Australia')">
+                🇦🇺 Australia
+            </button>
+        </div>
+
+        <!-- Verified Section -->
+        <div class="verification">
+            <span class="verification-text">Verified by Shein Partners</span>
+            <div class="verification-dot"></div>
+        </div>
+
+        <!-- Bottom Status -->
+        <div class="bottom-status">
+            <p class="status-text">
+                <span class="status-number" id="live-count">144</span> people are completing offers right now.
+            </p>
             <div class="urgency-indicator">
                 <div class="pulse-dot"></div>
-                <span id="live-count">79</span> people are completing this offer right now
+                <span>Limited time offer - Act fast!</span>
             </div>
+            <p class="age-disclaimer"><strong>Must be 18+ to participate in this offer.</strong></p>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">
-                <span class="footer-logo-text">SHEIN</span>
-            </div>
-            
-            <p class="geo-restriction">
-                Offer only available exclusively to residents of the US, UK, AU, & CA.
-            </p>
-            
-            <div class="legal-links">
-                <a href="#" class="legal-link">Terms & Conditions</a>
-                <span class="legal-separator">•</span>
-                <a href="#" class="legal-link">Privacy Policy</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Performance and Analytics Scripts -->
     <script>
-        // Preload critical resources
+        function handleUnitedStatesClick() {
+            // Hide the location question
+            const locationQuestion = document.getElementById('locationQuestion');
+            locationQuestion.classList.add('hidden');
+            
+            // Replace buttons with redeem button
+            const buttonsContainer = document.getElementById('buttonsContainer');
+            buttonsContainer.innerHTML = `
+                <button class="country-button redeem-button" onclick="window.location.href='https://rewarduplevel.com/aff_c?offer_id=445&aff_id=28197'">
+                    🎁 Thank you! Click to redeem your $750 reward!
+                </button>
+            `;
+        }
+        
+        function handleCountryClick(country) {
+            // Hide the location question
+            const locationQuestion = document.getElementById('locationQuestion');
+            locationQuestion.classList.add('hidden');
+            
+            // Replace buttons with redeem button
+            const buttonsContainer = document.getElementById('buttonsContainer');
+            buttonsContainer.innerHTML = `
+                <button class="country-button redeem-button" onclick="window.location.href='https://rewarduplevel.com/aff_c?offer_id=445&aff_id=28197'">
+                    🎁 Thank you ${country}! Click to redeem your reward!
+                </button>
+            `;
+        }
+        
+        // Simulate live count updates for urgency
         document.addEventListener('DOMContentLoaded', function() {
-            // Add smooth scroll behavior for better UX
-            document.documentElement.style.scrollBehavior = 'smooth';
-            
-            // Track CTA button clicks
-            const ctaButton = document.querySelector('.cta-button');
-            if (ctaButton) {
-                ctaButton.addEventListener('click', function(e) {
-                    // Allow default behavior to follow the href
-                    console.log('CTA button clicked - redirecting to:', this.href);
-                });
-            }
-            
-            // Simulate live count updates for urgency
             const liveCountElement = document.getElementById('live-count');
-            let currentCount = 79;
+            let currentCount = 144;
             
             setInterval(function() {
-                // Randomly increase or decrease by 1-3
-                const change = Math.floor(Math.random() * 3) + 1;
+                // Randomly increase or decrease by 1-4
+                const change = Math.floor(Math.random() * 4) + 1;
                 const increase = Math.random() > 0.3; // 70% chance to increase
                 
                 if (increase) {
                     currentCount += change;
                 } else {
-                    currentCount = Math.max(65, currentCount - change); // Don't go below 65
+                    currentCount = Math.max(120, currentCount - change); // Don't go below 120
                 }
                 
                 // Keep it within reasonable bounds
-                currentCount = Math.min(95, currentCount);
+                currentCount = Math.min(180, currentCount);
                 
                 liveCountElement.textContent = currentCount;
-            }, 3000 + Math.random() * 4000); // Update every 3-7 seconds
-            
-            // Optimize for mobile performance
-            if ('serviceWorker' in navigator) {
-                // Register service worker for caching if needed
-            }
+            }, 4000 + Math.random() * 3000); // Update every 4-7 seconds
         });
-
-        // Viewport height fix for mobile browsers
-        function setVH() {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        
-        setVH();
-        window.addEventListener('resize', setVH);
-        window.addEventListener('orientationchange', setVH);
     </script>
 </body>
 </html>
