@@ -2,434 +2,248 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Congratulations! You've been selected for an exclusive $750 Shein reward. Complete 4 simple steps to claim your gift card.">
-    <meta name="keywords" content="Shein, reward, gift card, $750, exclusive offer">
-    <meta name="robots" content="noindex, nofollow">
-    <title>$750 Shein Reward - Claim Your Exclusive Gift Card</title>
-    
-    <!-- Preload critical fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shein Offer</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        html, body {
-            height: 100vh;
-            overflow: hidden;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #000000;
-            color: #ffffff;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #000;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
         }
-        
+
         .container {
-            height: 100vh;
+            width: 100%;
+            max-width: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-            position: relative;
+            gap: 25px;
         }
-        
-        /* Logo */
-        .logo-container {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 40px;
+
+        .logo {
             width: 80px;
             height: 80px;
-        }
-        
-        .logo-text {
-            font-size: 32px;
-            font-weight: 800;
-            color: #000000;
-            letter-spacing: 1px;
-        }
-        
-        /* Main heading */
-        .main-heading {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 40px;
-        }
-        
-        /* Steps */
-        .steps-container {
-            margin-bottom: 40px;
-            width: 100%;
-            max-width: 350px;
-        }
-        
-        .step {
+            background-color: white;
+            border-radius: 16px;
             display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            margin-bottom: 16px;
-            font-size: 16px;
-            color: #ffffff;
-            text-align: left;
-            font-weight: 500;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 10px;
         }
-        
-        .step-number {
-            font-weight: 700;
-            color: #ffffff;
-            min-width: 25px;
-            margin-right: 8px;
-        }
-        
-        .step-content {
-            flex: 1;
-        }
-        
-        .step-bold {
-            font-weight: 700;
-            color: #ffffff;
-        }
-        
-        /* Location question */
-        .location-question {
+
+        .title {
             font-size: 20px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 30px;
-            transition: all 0.5s ease-in-out;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
-        
-        .location-question.hidden {
+
+        .steps {
+            text-align: center;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .steps div {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 30px 0 20px 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .question.hidden {
             opacity: 0;
-            height: 0;
-            margin: 0;
-            overflow: hidden;
         }
-        
-        /* Buttons */
+
         .buttons-container {
             display: flex;
             flex-direction: column;
             gap: 15px;
             width: 100%;
-            max-width: 280px;
-            margin-bottom: 40px;
+            max-width: 300px;
         }
-        
-        .country-button {
-            width: 100%;
-            background: #ffffff;
-            color: #000000;
-            font-weight: 600;
-            padding: 16px 24px;
-            border-radius: 12px;
+
+        .country-btn {
+            background-color: white;
+            color: black;
             border: none;
-            cursor: pointer;
+            padding: 15px 20px;
+            border-radius: 12px;
             font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            width: 100%;
         }
-        
-        .country-button:hover {
+
+        .country-btn:hover {
+            background-color: #f0f0f0;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
         }
-        
-        .country-button:active {
-            transform: translateY(0);
+
+        .claim-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 18px 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
-        
-        .redeem-button {
-            background: linear-gradient(135deg, #10b981, #059669) !important;
-            color: white !important;
-            box-shadow: 0 6px 30px rgba(16, 185, 129, 0.4) !important;
-            animation: pulse-success 2s ease-in-out infinite alternate;
+
+        .claim-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         }
-        
-        .redeem-button:hover {
-            box-shadow: 0 8px 40px rgba(16, 185, 129, 0.6) !important;
-        }
-        
-        @keyframes pulse-success {
-            0% { box-shadow: 0 6px 30px rgba(16, 185, 129, 0.4); }
-            100% { box-shadow: 0 8px 40px rgba(16, 185, 129, 0.6); }
-        }
-        
-        /* Verified section */
-        .verified-section {
-            margin-bottom: 30px;
+
+        .verification {
+            font-size: 14px;
+            color: #888;
+            margin: 20px 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 8px;
         }
-        
-        .verified-text {
+
+        .bottom-text {
             font-size: 14px;
-            color: #ffffff;
-            font-weight: 500;
-        }
-        
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background: #00d4aa;
-            border-radius: 50%;
-            animation: pulse-dot 2s infinite;
-        }
-        
-        @keyframes pulse-dot {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.7);
-            }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 8px rgba(0, 212, 170, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(0, 212, 170, 0);
-            }
-        }
-        
-        /* Bottom status */
-        .bottom-status {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
+            color: #ccc;
+            margin-top: 30px;
             text-align: center;
         }
-        
-        .status-text {
-            font-size: 16px;
-            color: #ffffff;
-            font-weight: 600;
+
+        .hidden {
+            display: none;
         }
-        
-        .status-number {
-            font-weight: 700;
-            color: #ffffff;
-        }
-        
-        /* Mobile optimizations */
+
         @media (max-height: 700px) {
             .container {
-                padding: 15px;
+                gap: 20px;
             }
-            
-            .logo-container {
-                margin-bottom: 30px;
+            .logo {
                 width: 70px;
                 height: 70px;
-                padding: 16px;
+                font-size: 42px;
             }
-            
-            .logo-text {
-                font-size: 28px;
-            }
-            
-            .main-heading {
-                font-size: 20px;
-                margin-bottom: 30px;
-            }
-            
-            .step {
-                font-size: 15px;
-                margin-bottom: 14px;
-            }
-            
-            .location-question {
+            .title {
                 font-size: 18px;
-                margin-bottom: 25px;
+                margin-bottom: 15px;
             }
-            
-            .country-button {
-                padding: 14px 20px;
+            .steps {
                 font-size: 15px;
+                margin-bottom: 15px;
             }
-            
-            .bottom-status {
-                bottom: 30px;
+            .question {
+                margin: 20px 0 15px 0;
             }
         }
-        
+
         @media (max-height: 600px) {
-            .container {
-                padding: 10px;
+            body {
+                padding: 15px;
             }
-            
-            .logo-container {
-                margin-bottom: 25px;
+            .container {
+                gap: 15px;
+            }
+            .logo {
                 width: 60px;
                 height: 60px;
-                padding: 12px;
+                font-size: 36px;
             }
-            
-            .logo-text {
-                font-size: 24px;
-            }
-            
-            .main-heading {
-                font-size: 18px;
-                margin-bottom: 25px;
-            }
-            
-            .step {
-                font-size: 14px;
-                margin-bottom: 12px;
-            }
-            
-            .location-question {
+            .title {
                 font-size: 16px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
-            
-            .country-button {
-                padding: 12px 18px;
+            .steps {
                 font-size: 14px;
+                margin-bottom: 10px;
             }
-            
-            .bottom-status {
-                bottom: 25px;
+            .question {
+                font-size: 16px;
+                margin: 15px 0 10px 0;
             }
-            
-            .status-text {
-                font-size: 14px;
+            .bottom-text {
+                margin-top: 20px;
+                font-size: 13px;
             }
-        }
-        
-        /* Performance optimizations */
-        .country-button, .logo-container {
-            will-change: transform;
-        }
-        
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        .country-button:focus {
-            outline: 3px solid #93C5FD;
-            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Logo -->
-        <div class="logo-container">
-            <span class="logo-text">S</span>
+        <div class="logo">S</div>
+        
+        <div class="title">Follow the steps below!</div>
+        
+        <div class="steps">
+            <div>1. Answer the questions below</div>
+            <div>2. Enter <strong>basic</strong> details</div>
+            <div>3. Complete <span class="highlight">3-5 deals (important!)</span></div>
+            <div>4. Get your <span class="highlight">credit</span> and repeat <span class="highlight">anytime!</span></div>
         </div>
-
-        <!-- Main Heading -->
-        <div class="main-heading">Follow the steps below!</div>
-
-        <!-- Steps Container -->
-        <div class="steps-container">
-            <div class="step">
-                <span class="step-number">1.</span>
-                <span class="step-content">Answer the questions below</span>
-            </div>
-            <div class="step">
-                <span class="step-number">2.</span>
-                <span class="step-content">Enter <span class="step-bold">basic</span> details</span>
-            </div>
-            <div class="step">
-                <span class="step-number">3.</span>
-                <span class="step-content">Complete <span class="step-bold">3-5 deals (important!)</span></span>
-            </div>
-            <div class="step">
-                <span class="step-number">4.</span>
-                <span class="step-content">Get your <span class="step-bold">credit</span> and repeat <span class="step-bold">anytime!</span></span>
-            </div>
-        </div>
-
-        <!-- Location Question -->
-        <div class="location-question" id="locationQuestion">
-            Where are you located?
-        </div>
-
-        <!-- Country Buttons -->
+        
+        <div class="question" id="question">Where are you located?</div>
+        
         <div class="buttons-container" id="buttonsContainer">
-            <button class="country-button" onclick="handleCountryClick()">
-                United States
-            </button>
-            <button class="country-button" onclick="handleCountryClick()">
-                Canada
-            </button>
+            <button class="country-btn" onclick="selectCountry('United States')">United States</button>
+            <button class="country-btn" onclick="selectCountry('Canada')">Canada</button>
         </div>
-
-        <!-- Verified Section -->
-        <div class="verified-section">
-            <div class="verified-text">Verified by TikTok</div>
-            <div class="pulse-dot"></div>
+        
+        <div class="verification">
+            Verified by TikTok
         </div>
-
-        <!-- Bottom Status -->
-        <div class="bottom-status">
-            <div class="status-text">
-                <span class="status-number" id="live-count">144</span> people are completing offers right now.
-            </div>
+        
+        <div class="bottom-text">
+            144 people are completing offers right now.
         </div>
     </div>
 
     <script>
-        function handleCountryClick() {
-            // Hide the location question with smooth transition
-            const locationQuestion = document.getElementById('locationQuestion');
-            locationQuestion.classList.add('hidden');
+        function selectCountry(country) {
+            // Hide the question
+            document.getElementById('question').classList.add('hidden');
             
-            // Replace buttons with redeem button
-            const buttonsContainer = document.getElementById('buttonsContainer');
-            buttonsContainer.innerHTML = `
-                <button class="country-button redeem-button" onclick="window.location.href='https://rewarduplevel.com/aff_c?offer_id=445&aff_id=28197'">
-                    🎁 THANK YOU! CLICK TO REDEEM YOUR REWARD!
-                </button>
-            `;
+            // Replace buttons with claim button
+            const container = document.getElementById('buttonsContainer');
+            container.innerHTML = '<button class="claim-btn" onclick="claimReward()">🎁 THANK YOU! CLICK TO REDEEM YOUR REWARD!</button>';
         }
-        
-        // Simulate live count updates for urgency
-        document.addEventListener('DOMContentLoaded', function() {
-            const liveCountElement = document.getElementById('live-count');
-            let currentCount = 144;
-            
-            setInterval(function() {
-                // Randomly increase or decrease by 1-3
-                const change = Math.floor(Math.random() * 3) + 1;
-                const increase = Math.random() > 0.3; // 70% chance to increase
-                
-                if (increase) {
-                    currentCount += change;
-                } else {
-                    currentCount = Math.max(140, currentCount - change); // Don't go below 140
-                }
-                
-                // Keep it within reasonable bounds
-                currentCount = Math.min(155, currentCount);
-                
-                liveCountElement.textContent = currentCount;
-            }, 3000 + Math.random() * 4000); // Update every 3-7 seconds
-        });
+
+        function claimReward() {
+            // Add any claim logic here
+            alert('Redirecting to claim your reward!');
+        }
     </script>
 </body>
 </html>
