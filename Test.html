@@ -6,7 +6,7 @@
     <meta name="description" content="Congratulations! You've been selected for an exclusive $750 Shein reward. Complete 4 simple steps to claim your gift card.">
     <meta name="keywords" content="Shein, reward, gift card, $750, exclusive offer">
     <meta name="robots" content="noindex, nofollow">
-    <title>$750 Shein Reward - Claim Your Exclusive Back2School Gift Card</title>
+    <title>$750 Shein Reward - Claim Your Exclusive Gift Card</title>
     
     <!-- Preload critical fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,32 +14,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        html {
-            font-size: 14px;
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: transparent;
+        html, body {
+            height: 100%;
+            overflow: hidden;
         }
         
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             color: white;
-            line-height: 1.5;
-            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            min-height: 100vh;
-            position: relative;
         }
         
-        /* Animated background elements */
+        /* Animated background */
         body::before {
             content: '';
             position: fixed;
@@ -59,33 +58,25 @@
             100% { transform: translateY(-100px); }
         }
         
-        /* Container */
         .container {
-            max-width: 480px;
+            max-width: 400px;
             width: 100%;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        /* Header Section */
-        .header {
+            align-items: center;
+            gap: 1.2rem;
             text-align: center;
-            margin-bottom: 1rem;
         }
         
+        /* Logo */
         .logo-container {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
             border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            padding: 16px 24px;
+            border-radius: 20px;
+            padding: 12px 20px;
             box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
             backdrop-filter: blur(10px);
             position: relative;
@@ -109,179 +100,47 @@
         }
         
         .heart-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
             fill: white;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         
         .logo-text {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             color: white;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            font-size: 0.8rem;
+        /* Main heading */
+        .main-heading h1 {
+            font-size: 1.4rem;
             font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-            animation: pulse-glow 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3); }
-            100% { box-shadow: 0 6px 24px rgba(16, 185, 129, 0.5); }
-        }
-        
-        .hero-title {
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, #f8fafc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-        
-        .hero-subtitle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        
-        .party-icon {
-            font-size: 1.8rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        
-        .reward-text {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero-description {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 24px;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-        
-        /* Steps Section */
-        .steps-section {
-            margin-bottom: 2rem;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 24px;
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
         }
         
-        .steps-container {
+        /* Steps */
+        .steps-list {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 0.6rem;
+            width: 100%;
         }
         
         .step {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .step::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .step:hover::before {
-            left: 100%;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: left;
+            padding: 0.5rem;
         }
         
         .step-number {
-            flex-shrink: 0;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-right: 20px;
-            box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
-        }
-        
-        .step-content {
-            flex: 1;
-        }
-        
-        .step-text {
-            font-size: 1rem;
             font-weight: 600;
-            color: white;
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
-        
-        .step-subtext {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 400;
-            line-height: 1.5;
+            color: #ff6b6b;
         }
         
         .step-bold {
@@ -289,10 +148,8 @@
             color: #ffd93d;
         }
         
-        /* Location Question */
+        /* Location question */
         .location-question {
-            text-align: center;
-            margin-bottom: 2rem;
             transition: all 0.3s ease-in-out;
         }
         
@@ -304,23 +161,18 @@
         }
         
         .location-question h2 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: white;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
         }
         
-        .location-subtitle {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Buttons Container */
+        /* Buttons */
         .buttons-container {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 2rem;
+            gap: 0.8rem;
+            width: 100%;
         }
         
         .country-button {
@@ -328,11 +180,11 @@
             background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
             color: white;
             font-weight: 700;
-            padding: 18px 24px;
-            border-radius: 50px;
+            padding: 14px 24px;
+            border-radius: 25px;
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 6px 24px rgba(255, 107, 107, 0.4);
@@ -380,29 +232,28 @@
             100% { box-shadow: 0 8px 32px rgba(16, 185, 129, 0.6); }
         }
         
-        /* Verification Section */
+        /* Verification */
         .verification {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 1.5rem;
-            padding: 12px 20px;
+            gap: 8px;
+            padding: 8px 16px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
+            border-radius: 20px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .verification-text {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 500;
         }
         
         .verification-dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: linear-gradient(135deg, #10b981, #059669);
             border-radius: 50%;
             animation: pulse-dot 2s ease-in-out infinite;
@@ -415,7 +266,7 @@
             }
             70% {
                 transform: scale(1);
-                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
             }
             100% {
                 transform: scale(0.95);
@@ -423,18 +274,16 @@
             }
         }
         
-        /* Bottom Status */
+        /* Bottom status */
         .bottom-status {
-            text-align: center;
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .status-text {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
         }
@@ -442,95 +291,79 @@
         .status-number {
             font-weight: 700;
             color: #10b981;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .urgency-indicator {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 8px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #10b981;
             font-weight: 600;
         }
         
         .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: #10b981;
             border-radius: 50%;
-            margin-right: 8px;
+            margin-right: 6px;
             animation: pulse-dot 2s infinite;
         }
         
-        /* Age Disclaimer */
         .age-disclaimer {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-top: 12px;
             font-weight: 700;
-            text-align: center;
             background: rgba(255, 107, 107, 0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 6px 12px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 107, 107, 0.3);
         }
         
-        /* Responsive Design */
-        @media (min-width: 375px) {
+        /* Responsive adjustments */
+        @media (max-height: 700px) {
             .container {
-                padding: 0 24px;
+                gap: 1rem;
             }
             
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            .reward-text {
-                font-size: 1.8rem;
-            }
-        }
-        
-        @media (min-width: 414px) {
             .step {
-                padding: 24px;
-            }
-            
-            .step-number {
-                width: 52px;
-                height: 52px;
-                font-size: 1.3rem;
-                margin-right: 24px;
+                font-size: 0.85rem;
+                padding: 0.4rem;
             }
             
             .country-button {
-                padding: 20px 32px;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-height: 600px) {
+            .container {
+                gap: 0.8rem;
+            }
+            
+            .logo-container {
+                padding: 10px 16px;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .main-heading h1 {
                 font-size: 1.2rem;
             }
-        }
-        
-        @media (min-width: 768px) {
-            .container {
-                max-width: 540px;
-                padding: 0 32px;
-            }
             
-            .hero-title {
-                font-size: 3.2rem;
-            }
-            
-            .reward-text {
-                font-size: 2rem;
-            }
-            
-            .country-button:hover {
-                transform: translateY(-3px);
+            .step {
+                font-size: 0.8rem;
+                padding: 0.3rem;
             }
         }
         
-        /* Performance Optimizations */
-        .step, .country-button, .logo-container {
+        /* Performance optimizations */
+        .country-button, .logo-container {
             will-change: transform;
         }
         
@@ -543,7 +376,6 @@
             }
         }
         
-        /* Focus styles for accessibility */
         .country-button:focus {
             outline: 3px solid #93C5FD;
             outline-offset: 2px;
@@ -552,79 +384,38 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="logo-container">
-                <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                </svg>
-                <span class="logo-text">SHEIN</span>
-            </div>
+        <!-- Logo -->
+        <div class="logo-container">
+            <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <span class="logo-text">SHEIN</span>
         </div>
 
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="hero-badge">🎯 Exclusive Offer</div>
-            <h1 class="hero-title">Congratulations!</h1>
-            
-            <div class="hero-subtitle">
-                <span class="party-icon">🎉</span>
-                <span class="reward-text">$750 Shein Gift Card!</span>
-                <span class="party-icon">🎉</span>
-            </div>
-
-            <p class="hero-description">
-                You've been selected for an exclusive Shein reward. Follow the steps below!
-            </p>
+        <!-- Main Heading -->
+        <div class="main-heading">
+            <h1>Follow the steps below!</h1>
         </div>
 
-        <!-- Steps Section -->
-        <div class="steps-section">
-            <h2 class="section-title">Your Path to $750</h2>
-            
-            <div class="steps-container">
-                <!-- Step 1 -->
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <div class="step-text">Answer the questions below 📝</div>
-                        <div class="step-subtext">Quick and easy verification process</div>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <div class="step-text">Enter basic details</div>
-                        <div class="step-subtext">Just your essential information</div>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <div class="step-text">Complete <span class="step-bold">3-5 deals (important!)</span></div>
-                        <div class="step-subtext">The more you do, the higher your reward</div>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <div class="step-text">Get your <span class="step-bold">credit</span> and repeat <span class="step-bold">anytime!</span></div>
-                        <div class="step-subtext">From $150 minimum up to $750 Gift Card!</div>
-                    </div>
-                </div>
+        <!-- Steps List -->
+        <div class="steps-list">
+            <div class="step">
+                <span class="step-number">1.</span> Answer the questions below
+            </div>
+            <div class="step">
+                <span class="step-number">2.</span> Enter basic details
+            </div>
+            <div class="step">
+                <span class="step-number">3.</span> Complete <span class="step-bold">3-5 deals (important!)</span>
+            </div>
+            <div class="step">
+                <span class="step-number">4.</span> Get your <span class="step-bold">credit</span> and repeat <span class="step-bold">anytime!</span>
             </div>
         </div>
 
         <!-- Location Question -->
         <div class="location-question" id="locationQuestion">
             <h2>Where are you located?</h2>
-            <p class="location-subtitle">Select your country to continue</p>
         </div>
 
         <!-- Country Buttons -->
@@ -635,15 +426,9 @@
             <button class="country-button" onclick="handleCountryClick('Canada')">
                 🇨🇦 Canada
             </button>
-            <button class="country-button" onclick="handleCountryClick('United Kingdom')">
-                🇬🇧 United Kingdom
-            </button>
-            <button class="country-button" onclick="handleCountryClick('Australia')">
-                🇦🇺 Australia
-            </button>
         </div>
 
-        <!-- Verified Section -->
+        <!-- Verification -->
         <div class="verification">
             <span class="verification-text">Verified by Shein Partners</span>
             <div class="verification-dot"></div>
@@ -652,11 +437,11 @@
         <!-- Bottom Status -->
         <div class="bottom-status">
             <p class="status-text">
-                <span class="status-number" id="live-count">144</span> people are completing offers right now.
+                <span class="status-number" id="live-count">79</span> people are completing this offer right now.
             </p>
             <div class="urgency-indicator">
                 <div class="pulse-dot"></div>
-                <span>Limited time offer - Act fast!</span>
+                <span>Limited time offer!</span>
             </div>
             <p class="age-disclaimer"><strong>Must be 18+ to participate in this offer.</strong></p>
         </div>
@@ -672,7 +457,7 @@
             const buttonsContainer = document.getElementById('buttonsContainer');
             buttonsContainer.innerHTML = `
                 <button class="country-button redeem-button" onclick="window.location.href='https://rewarduplevel.com/aff_c?offer_id=445&aff_id=28197'">
-                    🎁 Thank you! Click to redeem your $750 reward!
+                    🎁 Thank you! Click to redeem your reward!
                 </button>
             `;
         }
@@ -694,24 +479,24 @@
         // Simulate live count updates for urgency
         document.addEventListener('DOMContentLoaded', function() {
             const liveCountElement = document.getElementById('live-count');
-            let currentCount = 144;
+            let currentCount = 79;
             
             setInterval(function() {
-                // Randomly increase or decrease by 1-4
-                const change = Math.floor(Math.random() * 4) + 1;
+                // Randomly increase or decrease by 1-3
+                const change = Math.floor(Math.random() * 3) + 1;
                 const increase = Math.random() > 0.3; // 70% chance to increase
                 
                 if (increase) {
                     currentCount += change;
                 } else {
-                    currentCount = Math.max(120, currentCount - change); // Don't go below 120
+                    currentCount = Math.max(65, currentCount - change); // Don't go below 65
                 }
                 
                 // Keep it within reasonable bounds
-                currentCount = Math.min(180, currentCount);
+                currentCount = Math.min(95, currentCount);
                 
                 liveCountElement.textContent = currentCount;
-            }, 4000 + Math.random() * 3000); // Update every 4-7 seconds
+            }, 3000 + Math.random() * 4000); // Update every 3-7 seconds
         });
     </script>
 </body>
