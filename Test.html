@@ -244,6 +244,43 @@
             font-weight: 500;
         }
         
+        /* Urgency Indicator */
+        .urgency-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #059669;
+            font-weight: 600;
+        }
+        
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #10B981;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+            
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+        
         /* Footer Section */
         .footer {
             padding: 18px 0 16px;
@@ -517,6 +554,10 @@
             </a>
             <p class="cta-microcopy">Takes less than 60 seconds to start.</p>
             <p class="age-disclaimer"><strong>Must be 18+ to participate in this offer.</strong></p>
+            <div class="urgency-indicator">
+                <div class="pulse-dot"></div>
+                <span id="live-count">79</span> people are completing this offer right now
+            </div>
         </div>
     </section>
 
@@ -554,6 +595,27 @@
                     console.log('CTA button clicked - redirecting to:', this.href);
                 });
             }
+            
+            // Simulate live count updates for urgency
+            const liveCountElement = document.getElementById('live-count');
+            let currentCount = 79;
+            
+            setInterval(function() {
+                // Randomly increase or decrease by 1-3
+                const change = Math.floor(Math.random() * 3) + 1;
+                const increase = Math.random() > 0.3; // 70% chance to increase
+                
+                if (increase) {
+                    currentCount += change;
+                } else {
+                    currentCount = Math.max(65, currentCount - change); // Don't go below 65
+                }
+                
+                // Keep it within reasonable bounds
+                currentCount = Math.min(95, currentCount);
+                
+                liveCountElement.textContent = currentCount;
+            }, 3000 + Math.random() * 4000); // Update every 3-7 seconds
             
             // Optimize for mobile performance
             if ('serviceWorker' in navigator) {
