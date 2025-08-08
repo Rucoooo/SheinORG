@@ -11,7 +11,7 @@
     <!-- Preload critical fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -26,45 +26,25 @@
         }
         
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: white;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
+            padding: 20px;
             position: relative;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Animated background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="12" cy="8" r="0.3" fill="rgba(255,255,255,0.05)"/><circle cx="18" cy="15" r="0.4" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>') repeat;
-            opacity: 0.3;
-            animation: twinkle 20s linear infinite;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        @keyframes twinkle {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-100px); }
-        }
-        
         .container {
-            max-width: 400px;
+            max-width: 350px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.2rem;
+            gap: 24px;
             text-align: center;
         }
         
@@ -74,11 +54,9 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 12px 20px;
+            border-radius: 25px;
+            padding: 16px 32px;
             box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
-            backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
@@ -100,47 +78,55 @@
         }
         
         .heart-icon {
-            width: 18px;
-            height: 18px;
-            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
             fill: white;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         
         .logo-text {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 800;
             color: white;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
         /* Main heading */
         .main-heading h1 {
-            font-size: 1.4rem;
+            font-size: 18px;
             font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
+            color: #333;
+            margin-bottom: 8px;
         }
         
         /* Steps */
         .steps-list {
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
+            gap: 12px;
             width: 100%;
+            text-align: left;
+            padding: 0 20px;
         }
         
         .step {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-align: left;
-            padding: 0.5rem;
+            font-size: 16px;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
         }
         
         .step-number {
             font-weight: 600;
             color: #ff6b6b;
+            min-width: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
         }
         
         .step-bold {
@@ -161,56 +147,41 @@
         }
         
         .location-question h2 {
-            font-size: 1.2rem;
+            font-size: 18px;
             font-weight: 600;
-            color: white;
-            margin-bottom: 0.5rem;
+            color: #333;
+            margin-bottom: 8px;
         }
         
         /* Buttons */
         .buttons-container {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 12px;
             width: 100%;
+            max-width: 280px;
         }
         
         .country-button {
             width: 100%;
-            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-            color: white;
-            font-weight: 700;
-            padding: 14px 24px;
-            border-radius: 25px;
-            border: none;
+            background: white;
+            color: #333;
+            font-weight: 600;
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
             cursor: pointer;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 6px 24px rgba(255, 107, 107, 0.4);
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .country-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-        
         .country-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.6);
-        }
-        
-        .country-button:hover::before {
-            left: 100%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b6b;
         }
         
         .country-button:active {
@@ -219,6 +190,8 @@
         
         .redeem-button {
             background: linear-gradient(135deg, #10b981, #059669) !important;
+            color: white !important;
+            border: none !important;
             box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4) !important;
             animation: pulse-success 2s ease-in-out infinite alternate;
         }
@@ -232,31 +205,45 @@
             100% { box-shadow: 0 8px 32px rgba(16, 185, 129, 0.6); }
         }
         
-        /* Verification */
-        .verification {
+        /* Bottom status */
+        .bottom-status {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .status-text {
+            font-size: 16px;
+            color: #10b981;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-number {
+            font-weight: 700;
+            color: #10b981;
+            font-size: 18px;
+        }
+        
+        .urgency-indicator {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+            color: #10b981;
+            font-weight: 600;
         }
         
-        .verification-text {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-        }
-        
-        .verification-dot {
-            width: 6px;
-            height: 6px;
-            background: linear-gradient(135deg, #10b981, #059669);
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
             border-radius: 50%;
-            animation: pulse-dot 2s ease-in-out infinite;
+            margin-right: 8px;
+            animation: pulse-dot 2s infinite;
         }
         
         @keyframes pulse-dot {
@@ -274,91 +261,51 @@
             }
         }
         
-        /* Bottom status */
-        .bottom-status {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .status-text {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 500;
-        }
-        
-        .status-number {
-            font-weight: 700;
-            color: #10b981;
-            font-size: 1rem;
-        }
-        
-        .urgency-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: #10b981;
-            font-weight: 600;
-        }
-        
-        .pulse-dot {
-            width: 6px;
-            height: 6px;
-            background: #10b981;
-            border-radius: 50%;
-            margin-right: 6px;
-            animation: pulse-dot 2s infinite;
-        }
-        
         .age-disclaimer {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            color: #666;
             font-weight: 700;
-            background: rgba(255, 107, 107, 0.2);
-            padding: 6px 12px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 107, 107, 0.3);
+            background: rgba(255, 107, 107, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 107, 0.2);
         }
         
-        /* Responsive adjustments */
+        /* Mobile optimizations */
         @media (max-height: 700px) {
             .container {
-                gap: 1rem;
+                gap: 20px;
             }
             
             .step {
-                font-size: 0.85rem;
-                padding: 0.4rem;
+                font-size: 15px;
             }
             
             .country-button {
-                padding: 12px 20px;
-                font-size: 0.9rem;
+                padding: 14px 20px;
+                font-size: 15px;
             }
         }
         
         @media (max-height: 600px) {
             .container {
-                gap: 0.8rem;
+                gap: 16px;
             }
             
             .logo-container {
-                padding: 10px 16px;
+                padding: 12px 24px;
             }
             
             .logo-text {
-                font-size: 18px;
+                font-size: 20px;
             }
             
             .main-heading h1 {
-                font-size: 1.2rem;
+                font-size: 16px;
             }
             
             .step {
-                font-size: 0.8rem;
-                padding: 0.3rem;
+                font-size: 14px;
             }
         }
         
@@ -400,16 +347,20 @@
         <!-- Steps List -->
         <div class="steps-list">
             <div class="step">
-                <span class="step-number">1.</span> Answer the questions below
+                <span class="step-number">1.</span>
+                <span class="step-content">Answer the questions below</span>
             </div>
             <div class="step">
-                <span class="step-number">2.</span> Enter basic details
+                <span class="step-number">2.</span>
+                <span class="step-content">Enter basic details</span>
             </div>
             <div class="step">
-                <span class="step-number">3.</span> Complete <span class="step-bold">3-5 deals (important!)</span>
+                <span class="step-number">3.</span>
+                <span class="step-content">Complete <span class="step-bold">3-5 deals (important!)</span></span>
             </div>
             <div class="step">
-                <span class="step-number">4.</span> Get your <span class="step-bold">credit</span> and repeat <span class="step-bold">anytime!</span>
+                <span class="step-number">4.</span>
+                <span class="step-content">Get your <span class="step-bold">credit</span> and repeat <span class="step-bold">anytime!</span></span>
             </div>
         </div>
 
@@ -420,35 +371,29 @@
 
         <!-- Country Buttons -->
         <div class="buttons-container" id="buttonsContainer">
-            <button class="country-button" onclick="handleUnitedStatesClick()">
+            <button class="country-button" onclick="handleCountryClick()">
                 🇺🇸 United States
             </button>
-            <button class="country-button" onclick="handleCountryClick('Canada')">
+            <button class="country-button" onclick="handleCountryClick()">
                 🇨🇦 Canada
             </button>
-        </div>
-
-        <!-- Verification -->
-        <div class="verification">
-            <span class="verification-text">Verified by Shein Partners</span>
-            <div class="verification-dot"></div>
         </div>
 
         <!-- Bottom Status -->
         <div class="bottom-status">
             <p class="status-text">
-                <span class="status-number" id="live-count">79</span> people are completing this offer right now.
+                <span class="pulse-dot"></span>
+                <span class="status-number" id="live-count">82</span> people are completing this offer right now.
             </p>
             <div class="urgency-indicator">
-                <div class="pulse-dot"></div>
-                <span>Limited time offer!</span>
+                <span>• Limited time offer!</span>
             </div>
             <p class="age-disclaimer"><strong>Must be 18+ to participate in this offer.</strong></p>
         </div>
     </div>
 
     <script>
-        function handleUnitedStatesClick() {
+        function handleCountryClick() {
             // Hide the location question
             const locationQuestion = document.getElementById('locationQuestion');
             locationQuestion.classList.add('hidden');
@@ -457,21 +402,7 @@
             const buttonsContainer = document.getElementById('buttonsContainer');
             buttonsContainer.innerHTML = `
                 <button class="country-button redeem-button" onclick="window.location.href='https://rewarduplevel.com/aff_c?offer_id=445&aff_id=28197'">
-                    🎁 Thank you! Click to redeem your reward!
-                </button>
-            `;
-        }
-        
-        function handleCountryClick(country) {
-            // Hide the location question
-            const locationQuestion = document.getElementById('locationQuestion');
-            locationQuestion.classList.add('hidden');
-            
-            // Replace buttons with redeem button
-            const buttonsContainer = document.getElementById('buttonsContainer');
-            buttonsContainer.innerHTML = `
-                <button class="country-button redeem-button" onclick="window.location.href='https://rewarduplevel.com/aff_c?offer_id=445&aff_id=28197'">
-                    🎁 Thank you ${country}! Click to redeem your reward!
+                    🎁 THANK YOU! CLICK TO REDEEM YOUR REWARD!
                 </button>
             `;
         }
@@ -479,7 +410,7 @@
         // Simulate live count updates for urgency
         document.addEventListener('DOMContentLoaded', function() {
             const liveCountElement = document.getElementById('live-count');
-            let currentCount = 79;
+            let currentCount = 82;
             
             setInterval(function() {
                 // Randomly increase or decrease by 1-3
@@ -489,7 +420,7 @@
                 if (increase) {
                     currentCount += change;
                 } else {
-                    currentCount = Math.max(65, currentCount - change); // Don't go below 65
+                    currentCount = Math.max(75, currentCount - change); // Don't go below 75
                 }
                 
                 // Keep it within reasonable bounds
