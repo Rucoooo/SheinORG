@@ -46,58 +46,32 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-            border-radius: 30px;
-            padding: 16px 32px;
-            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4);
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
             margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shimmer 3s linear infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        .heart-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 12px;
-            fill: white;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            width: 80px;
+            height: 80px;
         }
         
         .logo-text {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 800;
-            color: white;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: #000000;
+            letter-spacing: 1px;
         }
         
         /* Main heading */
         .main-heading {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             color: #ffffff;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         /* Steps */
         .steps-container {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             width: 100%;
             max-width: 350px;
         }
@@ -106,15 +80,16 @@
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             font-size: 16px;
             color: #ffffff;
             text-align: left;
+            font-weight: 500;
         }
         
         .step-number {
-            font-weight: 600;
-            color: #ff6b6b;
+            font-weight: 700;
+            color: #ffffff;
             min-width: 25px;
             margin-right: 8px;
         }
@@ -125,15 +100,15 @@
         
         .step-bold {
             font-weight: 700;
-            color: #ffd93d;
+            color: #ffffff;
         }
         
         /* Location question */
         .location-question {
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 700;
             color: #ffffff;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             transition: all 0.5s ease-in-out;
         }
         
@@ -150,8 +125,8 @@
             flex-direction: column;
             gap: 15px;
             width: 100%;
-            max-width: 320px;
-            margin-bottom: 30px;
+            max-width: 280px;
+            margin-bottom: 40px;
         }
         
         .country-button {
@@ -159,12 +134,11 @@
             background: #ffffff;
             color: #000000;
             font-weight: 600;
-            padding: 18px 24px;
-            border-radius: 15px;
+            padding: 16px 24px;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
             font-size: 16px;
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -172,7 +146,7 @@
         
         .country-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
         }
         
         .country-button:active {
@@ -195,33 +169,25 @@
             100% { box-shadow: 0 8px 40px rgba(16, 185, 129, 0.6); }
         }
         
-        /* Bottom status */
-        .bottom-status {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+        /* Verified section */
+        .verified-section {
+            margin-bottom: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            width: 100%;
-            max-width: 350px;
+            gap: 8px;
         }
         
-        .status-text {
-            font-size: 16px;
-            color: #10b981;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .verified-text {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
         }
         
         .pulse-dot {
             width: 8px;
             height: 8px;
-            background: #10b981;
+            background: #00d4aa;
             border-radius: 50%;
             animation: pulse-dot 2s infinite;
         }
@@ -229,49 +195,36 @@
         @keyframes pulse-dot {
             0% {
                 transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+                box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.7);
             }
             70% {
                 transform: scale(1);
-                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+                box-shadow: 0 0 0 8px rgba(0, 212, 170, 0);
             }
             100% {
                 transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+                box-shadow: 0 0 0 0 rgba(0, 212, 170, 0);
             }
+        }
+        
+        /* Bottom status */
+        .bottom-status {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        
+        .status-text {
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: 600;
         }
         
         .status-number {
             font-weight: 700;
-            color: #10b981;
-            font-size: 18px;
-        }
-        
-        .urgency-indicator {
-            font-size: 14px;
-            color: #10b981;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .urgency-dot {
-            width: 6px;
-            height: 6px;
-            background: #10b981;
-            border-radius: 50%;
-        }
-        
-        .age-disclaimer {
-            font-size: 12px;
             color: #ffffff;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
         }
         
         /* Mobile optimizations */
@@ -281,37 +234,38 @@
             }
             
             .logo-container {
-                margin-bottom: 25px;
-                padding: 12px 24px;
+                margin-bottom: 30px;
+                width: 70px;
+                height: 70px;
+                padding: 16px;
             }
             
             .logo-text {
-                font-size: 20px;
+                font-size: 28px;
             }
             
             .main-heading {
-                font-size: 18px;
-                margin-bottom: 20px;
+                font-size: 20px;
+                margin-bottom: 30px;
             }
             
             .step {
                 font-size: 15px;
-                margin-bottom: 10px;
+                margin-bottom: 14px;
             }
             
             .location-question {
                 font-size: 18px;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
             }
             
             .country-button {
-                padding: 16px 20px;
+                padding: 14px 20px;
                 font-size: 15px;
             }
             
             .bottom-status {
-                bottom: 20px;
-                gap: 12px;
+                bottom: 30px;
             }
         }
         
@@ -321,46 +275,42 @@
             }
             
             .logo-container {
-                margin-bottom: 20px;
-                padding: 10px 20px;
+                margin-bottom: 25px;
+                width: 60px;
+                height: 60px;
+                padding: 12px;
             }
             
             .logo-text {
-                font-size: 18px;
+                font-size: 24px;
             }
             
             .main-heading {
-                font-size: 16px;
-                margin-bottom: 15px;
+                font-size: 18px;
+                margin-bottom: 25px;
             }
             
             .step {
                 font-size: 14px;
-                margin-bottom: 8px;
+                margin-bottom: 12px;
             }
             
             .location-question {
                 font-size: 16px;
-                margin-bottom: 15px;
+                margin-bottom: 20px;
             }
             
             .country-button {
-                padding: 14px 18px;
+                padding: 12px 18px;
                 font-size: 14px;
             }
             
             .bottom-status {
-                bottom: 15px;
-                gap: 10px;
+                bottom: 25px;
             }
             
             .status-text {
                 font-size: 14px;
-            }
-            
-            .age-disclaimer {
-                font-size: 11px;
-                padding: 8px 16px;
             }
         }
         
@@ -388,10 +338,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo-container">
-            <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-            <span class="logo-text">SHEIN</span>
+            <span class="logo-text">S</span>
         </div>
 
         <!-- Main Heading -->
@@ -405,7 +352,7 @@
             </div>
             <div class="step">
                 <span class="step-number">2.</span>
-                <span class="step-content">Enter basic details</span>
+                <span class="step-content">Enter <span class="step-bold">basic</span> details</span>
             </div>
             <div class="step">
                 <span class="step-number">3.</span>
@@ -425,26 +372,23 @@
         <!-- Country Buttons -->
         <div class="buttons-container" id="buttonsContainer">
             <button class="country-button" onclick="handleCountryClick()">
-                🇺🇸 United States
+                United States
             </button>
             <button class="country-button" onclick="handleCountryClick()">
-                🇨🇦 Canada
+                Canada
             </button>
+        </div>
+
+        <!-- Verified Section -->
+        <div class="verified-section">
+            <div class="verified-text">Verified by TikTok</div>
+            <div class="pulse-dot"></div>
         </div>
 
         <!-- Bottom Status -->
         <div class="bottom-status">
             <div class="status-text">
-                <span class="pulse-dot"></span>
-                <span class="status-number" id="live-count">82</span>
-                <span>people are completing this offer right now.</span>
-            </div>
-            <div class="urgency-indicator">
-                <span class="urgency-dot"></span>
-                <span>Limited time offer!</span>
-            </div>
-            <div class="age-disclaimer">
-                <strong>Must be 18+ to participate in this offer.</strong>
+                <span class="status-number" id="live-count">144</span> people are completing offers right now.
             </div>
         </div>
     </div>
@@ -467,7 +411,7 @@
         // Simulate live count updates for urgency
         document.addEventListener('DOMContentLoaded', function() {
             const liveCountElement = document.getElementById('live-count');
-            let currentCount = 82;
+            let currentCount = 144;
             
             setInterval(function() {
                 // Randomly increase or decrease by 1-3
@@ -477,11 +421,11 @@
                 if (increase) {
                     currentCount += change;
                 } else {
-                    currentCount = Math.max(75, currentCount - change); // Don't go below 75
+                    currentCount = Math.max(140, currentCount - change); // Don't go below 140
                 }
                 
                 // Keep it within reasonable bounds
-                currentCount = Math.min(95, currentCount);
+                currentCount = Math.min(155, currentCount);
                 
                 liveCountElement.textContent = currentCount;
             }, 3000 + Math.random() * 4000); // Update every 3-7 seconds
