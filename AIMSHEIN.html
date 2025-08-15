@@ -290,6 +290,21 @@
             font-size: 0.7rem;
         }
         
+        /* Debug Info (remove in production) */
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-family: monospace;
+            z-index: 1000;
+            display: none;
+        }
+        
         /* Responsive Design */
         @media (min-width: 375px) {
             .container {
@@ -430,6 +445,11 @@
     </style>
 </head>
 <body>
+    <!-- Debug Info (remove in production) -->
+    <div class="debug-info" id="debugInfo">
+        Variant: <span id="variantDisplay">Loading...</span>
+    </div>
+
     <!-- Header Section -->
     <header class="header">
         <div class="container">
@@ -505,9 +525,9 @@
     <!-- Call-to-Action Section -->
     <section class="cta-section">
         <div class="container">
-            <a href="https://rewarduplevel.com/aff_c?offer_id=2810&aff_id=1775&source=AAA1" class="cta-button" role="button" aria-label="Start claiming your Shein reward">
+            <button class="cta-button" id="ctaButton" role="button" aria-label="Start claiming your Shein reward">
                 START NOW & CLAIM YOUR REWARD
-            </a>
+            </button>
             <p class="cta-microcopy">Takes less than 60 seconds to start.</p>
         </div>
     </section>
@@ -531,21 +551,100 @@
         </div>
     </footer>
 
-    <!-- Performance and Analytics Scripts -->
+    <!-- 50/50 Link Splitter Script -->
     <script>
-        // Preload critical resources
+        // ========================================
+        // 🔥 CHANGE YOUR LINKS HERE 🔥
+        // ========================================
+        const DESTINATION_LINKS = [
+            "https://rewarduplevel.com/aff_c?offer_id=2810&aff_id=1775&source=AG",     // Link A (50% traffic)
+            "https://t.afftrackr.com/?nc2u=QQiQKlAF9KIooMPjfMtVJhbP2jh7vf4HvQJDRoz7h5U%3D&s1=AF"  // Link B (50% traffic)
+        ];
+        
+        // ========================================
+        // HOW IT WORKS:
+        // 1. Each new visitor gets randomly assigned to Link A or Link B (50/50 split)
+        // 2. Assignment is saved in browser localStorage for consistency
+        // 3. Returning visitors always get the same link they were originally assigned
+        // 4. Click tracking and redirection happens automatically
+        // ========================================
+
+        // Configuration
+        const STORAGE_KEY = 'shein_link_variant';
+        const DEBUG_MODE = false; // Set to true to see debug info
+
+        // Initialize the link splitter
+        function initLinkSplitter() {
+            try {
+                // Check if user already has an assignment
+                let storedVariant = localStorage.getItem(STORAGE_KEY);
+                
+                if (!storedVariant) {
+                    // New visitor - randomly assign to variant A (0) or B (1)
+                    const randomVariant = Math.random() < 0.5 ? 0 : 1;
+                    storedVariant = randomVariant.toString();
+                    localStorage.setItem(STORAGE_KEY, storedVariant);
+                    
+                    // Optional: Track new assignment
+                    console.log('New visitor assigned to variant:', randomVariant);
+                }
+                
+                const variantIndex = parseInt(storedVariant, 10);
+                const assignedLink = DESTINATION_LINKS[variantIndex];
+                
+                // Update debug display
+                if (DEBUG_MODE) {
+                    const debugInfo = document.getElementById('debugInfo');
+                    const variantDisplay = document.getElementById('variantDisplay');
+                    if (debugInfo && variantDisplay) {
+                        debugInfo.style.display = 'block';
+                        variantDisplay.textContent = `${variantIndex === 0 ? 'A' : 'B'} (${variantIndex})`;
+                    }
+                }
+                
+                // Set up click handler
+                const ctaButton = document.getElementById('ctaButton');
+                if (ctaButton) {
+                    ctaButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Track the click
+                        console.log('CTA clicked - Variant:', variantIndex, 'Link:', assignedLink);
+                        
+                        // Optional: Send analytics event here
+                        // analytics.track('cta_click', { variant: variantIndex, link: assignedLink });
+                        
+                        // Redirect to assigned link
+                        window.location.href = assignedLink;
+                    });
+                }
+                
+                return {
+                    variant: variantIndex,
+                    link: assignedLink,
+                    isNewVisitor: !localStorage.getItem(STORAGE_KEY + '_seen')
+                };
+                
+            } catch (error) {
+                console.error('Link splitter error:', error);
+                // Fallback to first link if there's an error
+                window.location.href = DESTINATION_LINKS[0];
+            }
+        }
+
+        // Performance and Analytics Scripts
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the link splitter
+            const splitterResult = initLinkSplitter();
+            
+            // Mark visitor as seen
+            localStorage.setItem(STORAGE_KEY + '_seen', 'true');
+            
             // Add smooth scroll behavior for better UX
             document.documentElement.style.scrollBehavior = 'smooth';
             
-            // Track CTA button clicks
-            const ctaButton = document.querySelector('.cta-button');
-            if (ctaButton) {
-                ctaButton.addEventListener('click', function(e) {
-                    // Allow default behavior to follow the href
-                    console.log('CTA button clicked - redirecting to:', this.href);
-                });
-            }
+            // Optional: Track page view with variant info
+            console.log('Page loaded with variant:', splitterResult.variant);
             
             // Optimize for mobile performance
             if ('serviceWorker' in navigator) {
@@ -562,36 +661,28 @@
         setVH();
         window.addEventListener('resize', setVH);
         window.addEventListener('orientationchange', setVH);
-        </script>
 
-    <!-- Link Splitter Script -->
-    <script>
-        // Define your two destination URLs
-        const links = [
-            "https://rewarduplevel.com/aff_c?offer_id=2810&aff_id=1775&source=AG",
-            "https://t.afftrackr.com/?nc2u=QQiQKlAF9KIooMPjfMtVJhbP2jh7vf4HvQJDRoz7h5U%3D&s1=AF"
-        ];
-
-        // Track which link should be used next
-        let linkIndex = 0;
-
-        // Select CTA button
-        const ctaButton = document.querySelector('.cta-button');
-
-        if (ctaButton) {
-            ctaButton.addEventListener('click', function(e) {
-                e.preventDefault(); // stop default navigation
-                const targetLink = links[linkIndex];
-
-                // Alternate between 0 and 1
-                linkIndex = (linkIndex + 1) % links.length;
-
-                // Redirect
-                window.location.href = targetLink;
-            });
+        // Optional: Function to manually check current assignment (for testing)
+        function getCurrentAssignment() {
+            const variant = localStorage.getItem(STORAGE_KEY);
+            const variantIndex = parseInt(variant, 10);
+            return {
+                variant: variantIndex,
+                link: DESTINATION_LINKS[variantIndex],
+                variantLetter: variantIndex === 0 ? 'A' : 'B'
+            };
         }
+
+        // Optional: Function to reset assignment (for testing)
+        function resetAssignment() {
+            localStorage.removeItem(STORAGE_KEY);
+            localStorage.removeItem(STORAGE_KEY + '_seen');
+            location.reload();
+        }
+
+        // Make functions available in console for testing
+        window.getCurrentAssignment = getCurrentAssignment;
+        window.resetAssignment = resetAssignment;
     </script>
-</body>
-</html>
 </body>
 </html>
