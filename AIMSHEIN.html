@@ -562,6 +562,36 @@
         setVH();
         window.addEventListener('resize', setVH);
         window.addEventListener('orientationchange', setVH);
+        </script>
+
+    <!-- Link Splitter Script -->
+    <script>
+        // Define your two destination URLs
+        const links = [
+            "https://rewarduplevel.com/aff_c?offer_id=2810&aff_id=1775&source=AAA1",
+            "https://t.afftrackr.com/?nc2u=QQiQKlAF9KIooMPjfMtVJhbP2jh7vf4HvQJDRoz7h5U%3D&s1="
+        ];
+
+        // Track which link should be used next
+        let linkIndex = 0;
+
+        // Select CTA button
+        const ctaButton = document.querySelector('.cta-button');
+
+        if (ctaButton) {
+            ctaButton.addEventListener('click', function(e) {
+                e.preventDefault(); // stop default navigation
+                const targetLink = links[linkIndex];
+
+                // Alternate between 0 and 1
+                linkIndex = (linkIndex + 1) % links.length;
+
+                // Redirect
+                window.location.href = targetLink;
+            });
+        }
     </script>
+</body>
+</html>
 </body>
 </html>
